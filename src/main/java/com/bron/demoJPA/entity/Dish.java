@@ -23,13 +23,11 @@ public class Dish {
 		name = "dish_sequence",
 		sequenceName = "dish_sequence",
 		allocationSize = 1
-			
 			)
 	
 	@GeneratedValue(
 		strategy = GenerationType.SEQUENCE,
 		generator = "dish_sequence"
-			
 			)
 	@Column(name ="dish_Id")
 	private Long dishId;

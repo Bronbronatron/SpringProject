@@ -66,7 +66,8 @@ public class rInfo {
 	
 	@OneToOne(
 			cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY
+			fetch = FetchType.LAZY,
+			optional = true
 			)
 	@JoinColumn(
 			name = "openingHourID",
@@ -76,13 +77,13 @@ public class rInfo {
 	
 	@OneToMany(
 			cascade = CascadeType.ALL
+			
 			)
 	@JoinColumn(
-			
 			name ="Rest_ID",
 			referencedColumnName = "Rest_ID"
 			)
-	private List<Dish> dishes;
+	private List<Dish> dish;
 	
 	
 }

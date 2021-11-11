@@ -69,10 +69,7 @@ public interface RestaurantRespository extends JpaRepository<rInfo, Long>  {
 		)
 	
 	int updateRestaurantNameByEmail(String name, String email);
-	
-	
-	
-	
+		
 	//Native
 	@Modifying
 	@Transactional

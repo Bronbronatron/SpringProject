@@ -1,5 +1,6 @@
 package com.bron.demoJPA;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.bron.demoJPA.entity.Address;
+import com.bron.demoJPA.entity.Dish;
 import com.bron.demoJPA.entity.OpeningHour;
 import com.bron.demoJPA.entity.rInfo;
 import com.bron.demoJPA.entity.rInfo.rInfoBuilder;
@@ -17,34 +19,40 @@ public class RestaurantRepositoryTest {
 	@Autowired
 	private RestaurantRespository restaurantRepository;
 	
-
-	@Autowired
-	private OpeningHourRespository openingHourRespository;
 	
-
 	@Test
-	public void OpeningHourSave () {
-		OpeningHour o = OpeningHour.builder()
-				.openingHourMon("9.00")
-				.closingHourMon("18.00")
-				.openingHourTue("9.00")
-				.closingHourTue("18.00")
-				.openingHourWed("Closed")
-				.closingHourWed("Closed")
-				.openingHourThurs("9.00")
-				.closingHourThurs("18.00")
-				.openingHourFri("9.00")
-				.closingHourFri("20.00")
-				.openingHourSat("9.00")
-				.closingHourSat("21.00")
-				.openingHourSun("Closed")
-				.closingHourSun("Closed")
-				.build();		
-		openingHourRespository.save(o);
+	public void RestaurantSaveWithDish() {
+		
+		Dish d = Dish.builder()
+				.dname("Fish and chips")
+				.price(10.65)
+				.description("Beer battered Fish and Chips")
+				.build();
+		Dish d2 = Dish.builder()
+				.dname("Taco Chip")
+				.price(4.65)
+				.description("Chips smothered in taco sauce")
+				.build();
+		
+		
+		List<Dish> listdish =Arrays.asList(d,d2);
+		
+		rInfo r = rInfo.builder()
+				.restaurantName("Baskins")
+				.phoneNumber("087557899")	
+				.email("Baskins@gmail.com")
+				.dish(listdish)
+				.build();	
+		restaurantRepository.save(r);		
+		
 	}
+	
+	
 	
 	@Test
 	public void RestaurantSave () {
+		
+
 		rInfo r = rInfo.builder()
 				.restaurantName("Jimmy's house")
 				.phoneNumber("0879967354")	
@@ -136,14 +144,16 @@ public class RestaurantRepositoryTest {
 		restaurantRepository.updateOpeningHourByRestaurantName(hi, "Jimmy's house");
 	}
 	
-	
+		
+	/*
+
 	@Test
 	public void printAllOpeningHour() {
 		List<OpeningHour> openingList = openingHourRespository.findAll();
 	System.out.println("--------- OpeningList-------------- " + openingList);
 	}
 	
-	/*
+	
 	@Test
 	public void printAllrInfo() {
 		List<rInfo> info = restaurantRepository.findAll();
