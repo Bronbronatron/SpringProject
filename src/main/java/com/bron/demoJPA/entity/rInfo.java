@@ -74,7 +74,7 @@ public class rInfo {
 			referencedColumnName = "OpeningHour_ID")
 	private OpeningHour opening; 
 			
-	
+	/*
 	@OneToMany(
 			cascade = CascadeType.ALL
 			
@@ -84,6 +84,6 @@ public class rInfo {
 			referencedColumnName = "Rest_ID"
 			)
 	private List<Dish> dish;
-	
+	*/
 	
 }

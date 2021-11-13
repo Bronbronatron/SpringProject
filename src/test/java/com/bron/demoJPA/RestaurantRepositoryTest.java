@@ -20,48 +20,22 @@ public class RestaurantRepositoryTest {
 	private RestaurantRespository restaurantRepository;
 	
 	
-	@Test
-	public void RestaurantSaveWithDish() {
-		
-		Dish d = Dish.builder()
-				.dname("Fish and chips")
-				.price(10.65)
-				.description("Beer battered Fish and Chips")
-				.build();
-		Dish d2 = Dish.builder()
-				.dname("Taco Chip")
-				.price(4.65)
-				.description("Chips smothered in taco sauce")
-				.build();
-		
-		
-		List<Dish> listdish =Arrays.asList(d,d2);
-		
-		rInfo r = rInfo.builder()
-				.restaurantName("Baskins")
-				.phoneNumber("087557899")	
-				.email("Baskins@gmail.com")
-				.dish(listdish)
-				.build();	
-		restaurantRepository.save(r);		
-		
-	}
-	
-	
-	
+	/*	
 	@Test
 	public void RestaurantSave () {
 		
-
-		rInfo r = rInfo.builder()
+	rInfo r = rInfo.builder()
 				.restaurantName("Jimmy's house")
 				.phoneNumber("0879967354")	
 				.email("jimmy@gmail.com")
 				.build();		
+		
 		restaurantRepository.save(r);	
+
 	} 
 	
-	
+
+
 	@Test
 	public void RestaurantOpeningSave () {
 		OpeningHour o = OpeningHour.builder()
@@ -90,7 +64,7 @@ public class RestaurantRepositoryTest {
 		restaurantRepository.save(r);	
 	} 
 	
-	
+	*/
 	@Test
 	public void saveAddressWithRestauarant() {
 		Address a = Address.builder()
@@ -98,16 +72,16 @@ public class RestaurantRepositoryTest {
 				.linetwo("Mountcharles")
 				.town("Donegal")
 				.city("Donegal")
-				.postcode("F94C986")
+				.postcode("F94C999")
 				.build(); 
 								
 		rInfo r = rInfo.builder()
-				.restaurantName("Tai Palace")
-				.phoneNumber("0985556673")
+				.restaurantName("Tai's Palace")
+				.phoneNumber("0985559978")
 				.address(a)
-				.email("TaiTai69@gmail.com")
+				.email("Tai@gmail.com")
 				.build();	
-		restaurantRepository.save(r);	
+				restaurantRepository.save(r);	
 		
 	}
 	
@@ -134,18 +108,39 @@ public class RestaurantRepositoryTest {
 				.openingHourFri("9.00")
 				.closingHourFri("20.00")
 				.openingHourSat("9.00")
-				.closingHourSat("21.00")
+				.closingHourSat("20.00")
 				.openingHourSun("Closed")
 				.closingHourSun("Closed")
 				.build();	
 	//	openingHourRespository.save(o);
 		Long hi = o.getOpeningHourID();
 		
-		restaurantRepository.updateOpeningHourByRestaurantName(hi, "Jimmy's house");
+		restaurantRepository.updateOpeningHourByRestaurantName(hi, "Tai's Palace");
+	
 	}
 	
 		
 	/*
+
+
+		rInfo rest = restaurantRepository.findByRestaurantName("Tai's Palace");
+		
+
+			.dname("Fish and chip")
+			.price(10.50)
+			.description("Traditional fish and chips")
+			.reqlist(list)
+			.restaurant(rest)
+			.build();
+		
+	
+			dishRepository.save(d);
+		
+	
+	
+
+
+
 
 	@Test
 	public void printAllOpeningHour() {

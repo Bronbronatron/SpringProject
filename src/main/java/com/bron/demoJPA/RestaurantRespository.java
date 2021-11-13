@@ -32,7 +32,7 @@ public interface RestaurantRespository extends JpaRepository<rInfo, Long>  {
 	
 	List<rInfo> findByAddressLinetwo(String two);
 
-
+	rInfo findByRestaurantName(String name);
 	
 	
 		//JPQL
@@ -79,6 +79,9 @@ public interface RestaurantRespository extends JpaRepository<rInfo, Long>  {
 		)
 	
 	int updateOpeningHourByRestaurantName(Long hour, String name);
+	
+	
+	
 	
 }
 	

@@ -12,7 +12,7 @@ public class OpeningHourRepositoryTest {
 	@Autowired
 	private  OpeningHourRespository openingHourRepository;
 	
-	
+	/*
 	@Test
 	public void OpeningHourSave () {
 		OpeningHour o = OpeningHour.builder()
@@ -33,5 +33,5 @@ public class OpeningHourRepositoryTest {
 				.build();		
 		openingHourRepository.save(o);
 	}
-
+*/
 }
